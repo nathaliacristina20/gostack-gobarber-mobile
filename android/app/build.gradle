@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.gobarber"
+        applicationId "com.appgobarber"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
