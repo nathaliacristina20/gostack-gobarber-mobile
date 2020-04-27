@@ -1,1 +1,0 @@
-# gostack-gobarber-mobile
