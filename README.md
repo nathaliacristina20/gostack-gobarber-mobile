@@ -59,7 +59,7 @@ e para barbeiros, permite gerenciar os horários marcados.</p>
 - [Node.js](https://nodejs.org/en/) v10.20 ou maior
 - [Yarn](https://yarnpkg.com/)
 - [Api REST do GoBarber](https://github.com/nathaliacristina20/gostack-gobarber-server)
-- Emulador ou Dispositivo fisíco 
+- Emulador ou Dispositivo físico
 
 <blockquote>Acesse <a href="https://react-native.rocketseat.dev">aqui</a> a documentação da Rocketseat com o passo-a-passo e erros mais comuns para montar seu ambiente Mobile.</blockquote>
 
