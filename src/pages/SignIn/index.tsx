@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useEffect, useState } from 'react';
 import {
   Image,
   ScrollView,
@@ -7,6 +7,7 @@ import {
   View,
   TextInput,
   Alert,
+  Keyboard,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
@@ -47,6 +48,26 @@ const SignIn: React.FC = () => {
 
   const { signIn } = useAuth();
 
+  const [keyboardOpen, setKeyboardOpen] = useState(false);
+
+  const keyboardDidShow = () => {
+    setKeyboardOpen(true);
+  };
+
+  const keyboardDidHide = () => {
+    setKeyboardOpen(false);
+  };
+
+  useEffect(() => {
+    Keyboard.addListener('keyboardDidShow', keyboardDidShow);
+    Keyboard.addListener('keyboardDidHide', keyboardDidHide);
+
+    return () => {
+      Keyboard.removeListener('keyboardDidShow', keyboardDidShow);
+      Keyboard.removeListener('keyboardDidHide', keyboardDidHide);
+    };
+  }, []);
+
   const handleSignIn = useCallback(
     async (data: SignInFormData) => {
       try {
@@ -85,7 +106,6 @@ const SignIn: React.FC = () => {
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        keyboardVerticalOffset={Platform.select({ ios: 120, android: 500 })}
         enabled
       >
         <ScrollView
@@ -130,17 +150,21 @@ const SignIn: React.FC = () => {
                 Entrar
               </Button>
             </Form>
-
-            <ForgotPassword onPress={() => console.log('Works!')}>
-              <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
-            </ForgotPassword>
+            {!keyboardOpen && (
+              <ForgotPassword onPress={() => console.log('Works!')}>
+                <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
+              </ForgotPassword>
+            )}
           </Container>
         </ScrollView>
       </KeyboardAvoidingView>
-      <CreateAccountButton onPress={() => navigation.navigate('SignUp')}>
-        <Icon name="log-in" size={20} color="#ff9000" />
-        <CreateAccountButtonText>Criar uma conta</CreateAccountButtonText>
-      </CreateAccountButton>
+
+      {!keyboardOpen && (
+        <CreateAccountButton onPress={() => navigation.navigate('SignUp')}>
+          <Icon name="log-in" size={20} color="#ff9000" />
+          <CreateAccountButtonText>Criar uma conta</CreateAccountButtonText>
+        </CreateAccountButton>
+      )}
     </>
   );
 };
