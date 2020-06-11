@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { StatusBar } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Profile from '../pages/Profile';
