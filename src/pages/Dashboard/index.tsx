@@ -31,7 +31,7 @@ export interface Provider {
 
 const Dashboard: React.FC = () => {
   const [providers, setProviders] = useState<Provider[]>([]);
-  const { signOut, user } = useAuth();
+  const { user } = useAuth();
 
   const { navigate } = useNavigation();
 
@@ -61,10 +61,6 @@ const Dashboard: React.FC = () => {
 
         <ProfileButton onPress={navigateToProfile}>
           <UserAvatar source={{ uri: user.avatar_url }} />
-        </ProfileButton>
-
-        <ProfileButton onPress={signOut}>
-          <Text>Sair</Text>
         </ProfileButton>
       </Header>
 

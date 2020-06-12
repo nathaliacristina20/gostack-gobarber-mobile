@@ -15,6 +15,12 @@ export const Title = styled.Text`
   margin: 24px 0;
 `;
 
+export const BoxButtons = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const BackButton = styled.TouchableOpacity`
   margin-top: 40px;
 `;
@@ -28,4 +34,8 @@ export const UserAvatar = styled.Image`
   height: 186px;
   border-radius: 98px;
   align-self: center;
+`;
+
+export const LogoutButton = styled.TouchableOpacity`
+  margin-top: 40px;
 `;

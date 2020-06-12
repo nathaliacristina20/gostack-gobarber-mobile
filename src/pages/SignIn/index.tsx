@@ -91,10 +91,10 @@ const SignIn: React.FC = () => {
           formRef.current?.setErrors(errors);
           return;
         }
-
-        console.log('###3 errro', err);
-
-        Alert.alert('Erro na autenticação', `${err}`);
+        Alert.alert(
+          'Erro na autenticação',
+          'Erro ao logar na aplicacao, cheque suas credenciais.',
+        );
       }
     },
     [signIn],
