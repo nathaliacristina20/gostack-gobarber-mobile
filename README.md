@@ -80,6 +80,9 @@ e para barbeiros, permite gerenciar os horários marcados.</p>
 
 Pronto! Feche e abra novamente o aplicativo.
 
+- Caso deseje executar os testes unitários basta executar ```yarn test``` em seu terminal. 
+- Para visualizar um relatório detalhado sobre a cobertura dos testes rode ```yarn test:coverage``` e acesse o arquivo ```coverage/lcov-report/index.html``` em seu navegador.
+
 <strong>Com um dispositivo físico</strong>
 
 <i>Certifique-se que seu dispositivo esteja com o modo desenvolver ativado.</i>
